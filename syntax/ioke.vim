@@ -23,7 +23,6 @@ setlocal iskeyword=35,36,37,42,43,45,47,48,49,50,51,52,53,54,55,56,57,60,61,62,6
 syn case match 
 
 syn region iokeQQ start="\%('\|''\)" end="\%(\_s\|[+\-*&^%<>\\\/[\]]\)\@=" contains=iokeQuoteString,iokeSquareString
-syn match iokeQQOp display "\%('\|''\)[+\-*&^%<>\\\/[\]]\+"
 syn cluster iokeListCluster contains=TOP,iokeParenError,iokeParen0,iokeParen1,iokeParen2,iokeParen3,iokeParen4,iokeParen5,iokeParen6,iokeParen7,iokeParen8,iokeParen9
 
 syn match iokeCurlyError display "}"
@@ -32,16 +31,16 @@ syn region stringSplice matchgroup=StringSpliceRegion start=/#{/ skip="|..\{-}|"
 syn match iokeParenError display ")" 
 syn match iokeParenError2 display ")" contained
 
-syn region iokeParen0 matchgroup=hlLevel0 start="\%(\%(`\|'\|''\)\%([+\-*&^%<>\\\/[\]]*\|[a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel0 end=")" contains=@iokeListCluster,iokeParen1 
-syn region iokeParen1 matchgroup=hlLevel1 start="\%(\%(`\|'\|''\)\%([+\-*&^%<>\\\/[\]]*\|[a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel1 end=")" contains=@iokeListCluster,iokeParen2 contained 
-syn region iokeParen2 matchgroup=hlLevel2 start="\%(\%(`\|'\|''\)\%([+\-*&^%<>\\\/[\]]*\|[a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel2 end=")" contains=@iokeListCluster,iokeParen3 contained 
-syn region iokeParen3 matchgroup=hlLevel3 start="\%(\%(`\|'\|''\)\%([+\-*&^%<>\\\/[\]]*\|[a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel3 end=")" contains=@iokeListCluster,iokeParen4 contained 
-syn region iokeParen4 matchgroup=hlLevel4 start="\%(\%(`\|'\|''\)\%([+\-*&^%<>\\\/[\]]*\|[a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel4 end=")" contains=@iokeListCluster,iokeParen5 contained 
-syn region iokeParen5 matchgroup=hlLevel5 start="\%(\%(`\|'\|''\)\%([+\-*&^%<>\\\/[\]]*\|[a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel5 end=")" contains=@iokeListCluster,iokeParen6 contained 
-syn region iokeParen6 matchgroup=hlLevel6 start="\%(\%(`\|'\|''\)\%([+\-*&^%<>\\\/[\]]*\|[a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel6 end=")" contains=@iokeListCluster,iokeParen7 contained 
-syn region iokeParen7 matchgroup=hlLevel7 start="\%(\%(`\|'\|''\)\%([+\-*&^%<>\\\/[\]]*\|[a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel7 end=")" contains=@iokeListCluster,iokeParen8 contained 
-syn region iokeParen8 matchgroup=hlLevel8 start="\%(\%(`\|'\|''\)\%([+\-*&^%<>\\\/[\]]*\|[a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel8 end=")" contains=@iokeListCluster,iokeParen9 contained 
-syn region iokeParen9 matchgroup=hlLevel9 start="\%(\%(`\|'\|''\)\%([+\-*&^%<>\\\/[\]]*\|[a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel9 end=")" contains=@iokeListCluster,iokeParen0 contained 
+syn region iokeParen0 matchgroup=hlLevel0 start="\%(\%(`\|'\|''\)\%([a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel0 end=")" contains=@iokeListCluster,iokeParen1 
+syn region iokeParen1 matchgroup=hlLevel1 start="\%(\%(`\|'\|''\)\%([a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel1 end=")" contains=@iokeListCluster,iokeParen2 contained 
+syn region iokeParen2 matchgroup=hlLevel2 start="\%(\%(`\|'\|''\)\%([a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel2 end=")" contains=@iokeListCluster,iokeParen3 contained 
+syn region iokeParen3 matchgroup=hlLevel3 start="\%(\%(`\|'\|''\)\%([a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel3 end=")" contains=@iokeListCluster,iokeParen4 contained 
+syn region iokeParen4 matchgroup=hlLevel4 start="\%(\%(`\|'\|''\)\%([a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel4 end=")" contains=@iokeListCluster,iokeParen5 contained 
+syn region iokeParen5 matchgroup=hlLevel5 start="\%(\%(`\|'\|''\)\%([a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel5 end=")" contains=@iokeListCluster,iokeParen6 contained 
+syn region iokeParen6 matchgroup=hlLevel6 start="\%(\%(`\|'\|''\)\%([a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel6 end=")" contains=@iokeListCluster,iokeParen7 contained 
+syn region iokeParen7 matchgroup=hlLevel7 start="\%(\%(`\|'\|''\)\%([a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel7 end=")" contains=@iokeListCluster,iokeParen8 contained 
+syn region iokeParen8 matchgroup=hlLevel8 start="\%(\%(`\|'\|''\)\%([a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel8 end=")" contains=@iokeListCluster,iokeParen9 contained 
+syn region iokeParen9 matchgroup=hlLevel9 start="\%(\%(`\|'\|''\)\%([a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel9 end=")" contains=@iokeListCluster,iokeParen0 contained 
 
 syn region hashBang start=/^#!\// end=/$/
 syn region iokeQuoteString start=/"/ skip=/\\"/ end=/"/ contains=@Spell,stringSplice
@@ -57,7 +56,6 @@ hi def link iokeSquareString IokeString
 hi def link hashBang Comment
 hi def link iokeComment SemicolonComment
 hi def link iokeQQ PreProc
-hi def link iokeQQOp PreProc
 
 hi def SemicolonComment ctermfg=grey guifg=LightGrey
 hi def IokeString guifg=Black guibg=#fff0f0
