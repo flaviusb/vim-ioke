@@ -1,0 +1,6 @@
+vim-ioke
+--------
+
+This is a plugin for Vim for some super basic Ioke syntax highlighting.
+
+It was inspired by fallintothis's Arc syntax highlighter from <http://bitbucket.org/fallintothis/arc-vim/>, and the Pygments ioke highlighter.
