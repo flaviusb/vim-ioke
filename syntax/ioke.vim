@@ -43,10 +43,16 @@ syn region iokeParen8 matchgroup=hlLevel8 start="\%(\%(`\|'\|''\)\%([a-zA-Z0-9_:
 syn region iokeParen9 matchgroup=hlLevel9 start="\%(\%(`\|'\|''\)\%([a-zA-Z0-9_:]*\)\)\=(" skip="|..\{-}|" matchgroup=hlLevel9 end=")" contains=@iokeListCluster,iokeParen0 contained 
 
 syn region hashBang start=/^#!\// end=/$/
-syn region iokeQuoteString start=/"/ skip=/\\"/ end=/"/ contains=@Spell,stringSplice
-syn region iokeSquareString start=/#\[/ skip=/\\]/ end=/]/ contains=@Spell,stringSplice
+syn region iokeQuoteString start=/"/ skip=/\\"/ end=/"/ contains=@Spell,stringSplice,qStringEscape
+syn region iokeSquareString start=/#\[/ skip=/\\]/ end=/]/ contains=@Spell,stringSplice,sStringEscape
+
+syn match qStringEscape display "\(\\b\|\\e\|\\t\|\\n\|\\f\|\\r\|\\\"\|\\\\\|\\#\|\\\Z\|\\u[0-9a-fA-F]{1,4}\|\\[0-3]?[0-7]?[0-7]\)" contained
+syn match sStringEscape display "\(\\b\|\\e\|\\t\|\\n\|\\f\|\\r\|\\]\|\\\\\|\\#\|\\\Z\|\\u[0-9a-fA-F]{1,4}\|\\[0-3]?[0-7]?[0-7]\)" contained
 
 syn region iokeComment start=/;/ end=/$/ contains=@Spell
+
+hi def link qStringEscape LiteralStringEscape
+hi def link sStringEscape LiteralStringEscape
 
 hi def link iokeParenError Error
 hi def link iokeParenError2 Error
@@ -61,6 +67,7 @@ hi def SemicolonComment ctermfg=grey guifg=LightGrey
 hi def IokeString guifg=Black guibg=#fff0f0
 hi def StringSpliceRegion guifg=Black guibg=LightGreen
 hi def LiteralStringDoc guifg=#D04020
+hi def LiteralStringEscape gui=bold guifg=#606060 guibg=#fff0f0
 
 if &bg == "dark"
   hi def hlLevel0 ctermfg=red guifg=red1
