@@ -49,6 +49,16 @@ syn region iokeSquareString start=/#\[/ skip=/\\]/ end=/]/ contains=@Spell,strin
 syn match qStringEscape display "\(\\b\|\\e\|\\t\|\\n\|\\f\|\\r\|\\\"\|\\\\\|\\#\|\\\Z\|\\u[0-9a-fA-F]{1,4}\|\\[0-3]?[0-7]?[0-7]\)" contained
 syn match sStringEscape display "\(\\b\|\\e\|\\t\|\\n\|\\f\|\\r\|\\]\|\\\\\|\\#\|\\\Z\|\\u[0-9a-fA-F]{1,4}\|\\[0-3]?[0-7]?[0-7]\)" contained
 
+syn region LiteralStringRegexSlash start=/#\// skip=/\\\// end=/\// contains=LiteralStringRegexEscapeSlash
+syn match LiteralStringRegexEscapeSlash display "\(\\\\\|\\\/\)" contained
+syn region LiteralStringRegexSquare start=/#r\[/ skip=/\\\]/ end=/]/ contains=LiteralStringRegexEscapeSquare
+syn match LiteralStringRegexEscapeSquare display "\(\\\\\|\\]\)" contained
+
+hi def link LiteralStringRegexSlash LiteralStringRegex
+hi def link LiteralStringRegexSquare LiteralStringRegex
+hi def link LiteralStringRegexEscapeSlash LiteralStringRegexEscape
+hi def link LiteralStringRegexEscapeSquare LiteralStringRegexEscape
+
 syn region iokeComment start=/;/ end=/$/ contains=@Spell
 
 hi def link qStringEscape LiteralStringEscape
