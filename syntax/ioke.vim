@@ -78,12 +78,13 @@ syn match LiteralStringRegexEscapeSlash display "\(\\\\\|\\\/\)" contained
 syn region LiteralStringRegexSquare start=/#r\[/ skip=/\\\]/ end=/]/ contains=LiteralStringRegexEscapeSquare
 syn match LiteralStringRegexEscapeSquare display "\(\\\\\|\\]\)" contained
 
+syn region iokeComment start=/;/ end=/$/ contains=@Spell
+
 hi def link LiteralStringRegexSlash LiteralStringRegex
 hi def link LiteralStringRegexSquare LiteralStringRegex
 hi def link LiteralStringRegexEscapeSlash LiteralStringRegexEscape
 hi def link LiteralStringRegexEscapeSquare LiteralStringRegexEscape
 
-syn region iokeComment start=/;/ end=/$/ contains=@Spell
 
 hi def link qStringEscape LiteralStringEscape
 hi def link sStringEscape LiteralStringEscape
