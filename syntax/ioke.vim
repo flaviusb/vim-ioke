@@ -78,6 +78,9 @@ syn match LiteralStringRegexEscapeSlash display "\(\\\\\|\\\/\)" contained
 syn region LiteralStringRegexSquare start=/#r\[/ skip=/\\\]/ end=/]/ contains=LiteralStringRegexEscapeSquare
 syn match LiteralStringRegexEscapeSquare display "\(\\\\\|\\]\)" contained
 
+syn match LiteralStringSymbol display ":[a-zA-Z0-9_!:?]\+"
+syn match LiteralStringKeyword display "[a-zA-Z0-9_!:?]\+:\([a-zA-Z0-9_!?]\)\@!"
+
 syn region iokeComment start=/;/ end=/$/ contains=@Spell
 
 hi def link LiteralStringRegexSlash LiteralStringRegex
@@ -85,6 +88,7 @@ hi def link LiteralStringRegexSquare LiteralStringRegex
 hi def link LiteralStringRegexEscapeSlash LiteralStringRegexEscape
 hi def link LiteralStringRegexEscapeSquare LiteralStringRegexEscape
 
+hi def link LiteralStringKeyword LiteralStringOther
 
 hi def link qStringEscape LiteralStringEscape
 hi def link sStringEscape LiteralStringEscape

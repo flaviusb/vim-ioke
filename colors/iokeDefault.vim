@@ -7,6 +7,8 @@ hi def LiteralStringDoc guifg=#D04020
 hi def LiteralStringEscape gui=bold guifg=#606060 guibg=#fff0f0
 hi def LiteralStringRegex guifg=#000000 guibg=#fff0ff
 hi def LiteralStringRegexEscape gui=bold guifg=#606060 guibg=#fff0ff
+hi def LiteralStringSymbol guifg=#A06000
+hi def LiteralStringOther guifg=#D02000 guibg=#fff0f0
 
 if &bg == "dark"
   hi def hlLevel0 ctermfg=red guifg=red1
