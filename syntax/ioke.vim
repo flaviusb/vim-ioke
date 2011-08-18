@@ -23,11 +23,13 @@ setlocal iskeyword=35,36,37,42,43,45,47,48,49,50,51,52,53,54,55,56,57,60,61,62,6
 syn case match 
 
 syn region iokeQQ start="\%('\|''\)" end="\%(\_s\|[+\-*&^%<>\\\/[\])]\)\@=" contains=iokeQuoteString,iokeSquareString
-syn cluster iokeListCluster contains=TOP,iokeParenError,iokeParen0,iokeParen1,iokeParen2,iokeParen3,iokeParen4,iokeParen5,iokeParen6,iokeParen7,iokeParen8,iokeParen9
+syn cluster iokeListCluster contains=TOP,iokeParenError2,iokeCurlyError2,iokeSquareError2,iokeCurly0,iokeCurly1,iokeCurly2,iokeCurly3,iokeCurly4,iokeCurly5,iokeCurly6,iokeCurly7,iokeCurly8,iokeCurly9,iokeCurly0,iokeCurly1,iokeCurly2,iokeCurly3,iokeCurly4,iokeCurly5,iokeCurly6,iokeCurly7,iokeCurly8,iokeCurly9,iokeSquare0,iokeSquare1,iokeSquare2,iokeSquare3,iokeSquare4,iokeSquare5,iokeSquare6,iokeSquare7,iokeSquare8,iokeSquare9
 
 syn match iokeCurlyError display "}"
 syn match iokeSquareError display "]"
-syn region stringSplice matchgroup=StringSpliceRegion start=/#{/ skip="|..\{-}|" end=/}/ contains=@iokeListCluster,iokeParenError2,iokeParen0 contained
+syn match iokeCurlyError2 display "}" contained
+syn match iokeSquareError2 display "]" contained
+syn region stringSplice matchgroup=StringSpliceRegion start=/#{/ skip="|..\{-}|" end=/}/ contains=@iokeListCluster,iokeParenError2,iokeCurlyError2,iokeSquareError2,iokeParen0,iokeCurly0,iokeSquare0 contained
 
 syn match iokeParenError display ")" 
 syn match iokeParenError2 display ")" contained
@@ -97,6 +99,8 @@ hi def link iokeParenError Error
 hi def link iokeParenError2 Error
 hi def link iokeCurlyError Error
 hi def link iokeSquareError Error
+hi def link iokeCurlyError2 Error
+hi def link iokeSquareError2 Error
 hi def link iokeQuoteString IokeString
 hi def link iokeSquareString IokeString
 hi def link hashBang Comment
